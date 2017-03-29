@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">Kamelrechner</string>
+
+    <string name="spinnerHaarfarbeText">Wähle eine Haarfarbe</string>
+    <string-array name="spinnerHaarfarbe">
+        <item>blond</item>
+        <item>braun</item>
+        <item>schwarz</item>
+        <item>rot</item>
+        <item>grau</item>
+    </string-array>
+
+    <string name="spinnerAugenfarbeText">Wähle eine Augenfarbe</string>
+    <string-array name="spinnerAugenfarbe">
+        <item>blau</item>
+        <item>grün</item>
+        <item>braun</item>
+        <item>grau</item>
+    </string-array>
+
+    <string name="spinnerKoerbchengroesseText">Wähle eine Körbchengröße</string>
+    <string-array name="spinnerKoerbchengroesse">
+        <item>klein</item>
+        <item>mittel</item>
+        <item>groß</item>
+        <item>riesig</item>
+    </string-array>
+
+    <string name="spinnerFigurText">Wähle eine Figur</string>
+    <string-array name="spinnerFigur">
+        <item>mager</item>
+        <item>sportlich</item>
+        <item>normal</item>
+        <item>mollig</item>
+        <item>dick</item>
+    </string-array>
 </resources>
