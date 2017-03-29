@@ -34,10 +34,103 @@ public class MainActivity extends AppCompatActivity {
                public void onClick(View v) {
                     int anzahl = 0;
 
-                    // berechnung
+                    /**
+                     * Berechnung
+                      */
+
+                    // Alter
+                    if (!eAlter.getText().toString().equals("")) {
+                        if (Integer.parseInt(eAlter.getText().toString()) < 18) {
+                            anzahl += 5;
+                        }
+                        else if(Integer.parseInt(eAlter.getText().toString()) >= 18 && Integer.parseInt(eAlter.getText().toString()) < 28) {
+                            anzahl += 7;
+                        }
+                        else if(Integer.parseInt(eAlter.getText().toString()) >= 28 && Integer.parseInt(eAlter.getText().toString()) < 45) {
+                            anzahl += 4;
+                        }
+                        else if(Integer.parseInt(eAlter.getText().toString()) >= 45) {
+                            anzahl += 2;
+                        }
+                    }
+
+
+                    // Groesse
+                    if (!eGroesse.getText().toString().equals("")) {
+                        if (Integer.parseInt(eGroesse.getText().toString()) < 160) {
+                            anzahl += 2;
+                        } else if (Integer.parseInt(eGroesse.getText().toString()) >= 160 && Integer.parseInt(eGroesse.getText().toString()) < 180) {
+                            anzahl += 4;
+                        } else if (Integer.parseInt(eGroesse.getText().toString()) >= 180) {
+                            anzahl += 1;
+                        }
+                    }
+
+                    // Haarfarbe
                     if (sHaarfarbe.getSelectedItem().equals("blond")) {
+                        anzahl += 7;
+                    }
+                    else if(sHaarfarbe.getSelectedItem().equals("braun")) {
+                        anzahl += 6;
+                    }
+                    else if(sHaarfarbe.getSelectedItem().equals("schwarz")) {
                         anzahl += 5;
-                    };
+                    }
+                    else if(sHaarfarbe.getSelectedItem().equals("rot")) {
+                        anzahl += 9;
+                    }
+                    else if(sHaarfarbe.getSelectedItem().equals("grau")) {
+                        anzahl += 2;
+                    }
+
+                    // Augenfarbe
+                    if (sAugenfarbe.getSelectedItem().equals("blau")) {
+                        anzahl += 5;
+                    }
+                    else if(sAugenfarbe.getSelectedItem().equals("grün")) {
+                        anzahl += 7;
+                    }
+                    else if(sAugenfarbe.getSelectedItem().equals("braun")) {
+                        anzahl += 4;
+                    }
+                    else if(sAugenfarbe.getSelectedItem().equals("grau")) {
+                        anzahl += 3;
+                    }
+
+                    // Koerbchengroesse
+                    if (sKoerbchengroesse.getSelectedItem().equals("klein")) {
+                        anzahl += 3;
+                    }
+                    else if(sKoerbchengroesse.getSelectedItem().equals("mittel")) {
+                        anzahl += 4;
+                    }
+                    else if(sKoerbchengroesse.getSelectedItem().equals("groß")) {
+                        anzahl += 5;
+                    }
+                    else if(sKoerbchengroesse.getSelectedItem().equals("riesig")) {
+                        anzahl += 3;
+                    }
+
+                    // Figur
+                    if (sFigur.getSelectedItem().equals("mager")) {
+                        anzahl += 1;
+                    }
+                    else if(sFigur.getSelectedItem().equals("sportlich")) {
+                        anzahl += 4;
+                    }
+                    else if(sFigur.getSelectedItem().equals("normal")) {
+                        anzahl += 3;
+                    }
+                    else if(sFigur.getSelectedItem().equals("mollig")) {
+                        anzahl += 2;
+                    }
+                    else if(sFigur.getSelectedItem().equals("dick")) {
+                        anzahl += 1;
+                    }
+
+                   /**
+                    * Ausgabe
+                    */
 
                    tErgebnis.setText(anzahl + " Kamele wert!");
                }
