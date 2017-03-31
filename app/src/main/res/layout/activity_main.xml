@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -27,13 +27,14 @@
                     android:id="@+id/tAlter" />
 
                 <EditText
-                    android:layout_width="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:id="@+id/eAlter"
                     android:inputType="number" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -46,13 +47,14 @@
                     android:id="@+id/tGroesse" />
 
                 <EditText
-                    android:layout_width="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:id="@+id/eGroesse"
                     android:inputType="number" />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -65,15 +67,17 @@
                     android:id="@+id/tHaarfarbe" />
 
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
+                    android:background="@color/transparent"
                     android:id="@+id/sHaarfarbe"
                     android:prompt="@string/spinnerHaarfarbeText"
                     />
 
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -86,19 +90,23 @@
                     android:id="@+id/tAugenFarbe" />
 
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:id="@+id/sAugenFarbe"
+                    android:background="@color/transparent"
+                    android:backgroundTintMode="multiply"
                     android:prompt="@string/spinnerAugenfarbeText"
                     />
-            </LinearLayout>
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
+                    android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -106,16 +114,18 @@
                     android:id="@+id/tKoerbchengroesse" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:id="@+id/sKoerbchengroesse"
                     android:prompt="@string/spinnerKoerbchengroesseText"
                     android:entries="@array/spinnerKoerbchengroesse"
                     android:background="#5b4040"
-                    android:backgroundTintMode="multiply" />
-            </LinearLayout>
+                    android:backgroundTintMode="multiply"
+                    />
+            </RelativeLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -128,15 +138,18 @@
                     android:id="@+id/tFigur" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
                     android:layout_height="wrap_content"
                     android:id="@+id/sFigur"
                     android:prompt="@string/spinnerFigurText"
                     android:entries="@array/spinnerFigur" />
-            </LinearLayout>
+            </RelativeLayout>
 
             <LinearLayout
+                android:paddingTop="30dip"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -148,6 +161,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingTop="20dip"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
