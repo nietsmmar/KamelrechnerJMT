@@ -163,16 +163,16 @@ public class CalculateWomenFragment extends Fragment {
 
                                               // Haarfarbe
                                               if (sHaarfarbe.getSelectedItem().equals("blond")) {
-                                                  anzahl += 7;
+                                                  anzahl += 9;
                                               }
                                               else if(sHaarfarbe.getSelectedItem().equals("braun")) {
-                                                  anzahl += 6;
+                                                  anzahl += 7;
                                               }
                                               else if(sHaarfarbe.getSelectedItem().equals("schwarz")) {
                                                   anzahl += 5;
                                               }
                                               else if(sHaarfarbe.getSelectedItem().equals("rot")) {
-                                                  anzahl += 9;
+                                                  anzahl += 9;      //nur weil Raphael auf Redheads steht
                                               }
                                               else if(sHaarfarbe.getSelectedItem().equals("grau")) {
                                                   anzahl += 2;
@@ -180,46 +180,46 @@ public class CalculateWomenFragment extends Fragment {
 
                                               // Augenfarbe
                                               if (sAugenfarbe.getSelectedItem().equals("blau")) {
-                                                  anzahl += 5;
+                                                  anzahl += 9;
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("grün")) {
-                                                  anzahl += 7;
+                                                  anzahl += 9;      //Raphaels taste again
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("braun")) {
-                                                  anzahl += 4;
+                                                  anzahl += 6;
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("grau")) {
-                                                  anzahl += 3;
+                                                  anzahl += 4;
                                               }
 
                                               // Koerbchengroesse
-                                              if (sKoerbchengroesse.getSelectedItem().equals("klein")) {
-                                                  anzahl += 3;
-                                              }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("mittel")) {
-                                                  anzahl += 4;
-                                              }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("groß")) {
+                                              if (sKoerbchengroesse.getSelectedItem().equals("A")) {
                                                   anzahl += 5;
                                               }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("riesig")) {
-                                                  anzahl += 3;
+                                              else if(sKoerbchengroesse.getSelectedItem().equals("B")) {
+                                                  anzahl += 7;
+                                              }
+                                              else if(sKoerbchengroesse.getSelectedItem().equals("C")) {
+                                                  anzahl += 7;
+                                              }
+                                              else if(sKoerbchengroesse.getSelectedItem().equals("D")) {
+                                                  anzahl += 5;
                                               }
 
-                                              // Figur
-                                              if (sFigur.getSelectedItem().equals("mager")) {
+                                              // Figur2
+                                              if (sFigur.getSelectedItem().equals("Magermodel")) {
                                                   anzahl += 1;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("sportlich")) {
-                                                  anzahl += 4;
+                                              else if(sFigur.getSelectedItem().equals("Sportskanone")) {
+                                                  anzahl += 5;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("normal")) {
-                                                  anzahl += 3;
+                                              else if(sFigur.getSelectedItem().equals("Venuskörper")) {
+                                                  anzahl += 6;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("mollig")) {
+                                              else if(sFigur.getSelectedItem().equals("BBW")) {
                                                   anzahl += 2;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("dick")) {
+                                              else if(sFigur.getSelectedItem().equals("2-sitzer")) {
                                                   anzahl += 1;
                                               }
 

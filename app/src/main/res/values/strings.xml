@@ -22,19 +22,19 @@
 
     <string name="spinnerKoerbchengroesseText">Wähle eine Körbchengröße</string>
     <string-array name="spinnerKoerbchengroesse">
-        <item>klein</item>
-        <item>mittel</item>
-        <item>groß</item>
-        <item>riesig</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
     </string-array>
 
     <string name="spinnerFigurText">Wähle eine Figur</string>
     <string-array name="spinnerFigur">
-        <item>mager</item>
-        <item>sportlich</item>
-        <item>normal</item>
-        <item>mollig</item>
-        <item>dick</item>
+        <item>Magermodel</item>
+        <item>Sportskanone</item>
+        <item>Venuskörper</item>
+        <item>BBW</item>
+        <item>2-sitzer</item>
     </string-array>
 
     <!-- men specific texts -->
