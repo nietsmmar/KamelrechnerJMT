@@ -18,6 +18,7 @@ package de.bundesjugendtage.kamelrechner.kamelrechner;
 
         import android.widget.TextView;
 
+        import layout.CalculateMenFragment;
         import layout.CalculateWomenFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tabbed_main_activity);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 case 0:
                     return CalculateWomenFragment.newInstance();
                 case 1:
-                    return CalculateWomenFragment.newInstance();
+                    return CalculateMenFragment.newInstance();
             }
             return null;
         }
@@ -112,11 +113,9 @@ public class MainActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return "Frau";
                 case 1:
-                    return "SECTION 2";
-                case 2:
-                    return "SECTION 3";
+                    return "Mann";
             }
             return null;
         }

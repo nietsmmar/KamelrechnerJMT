@@ -19,21 +19,21 @@ import de.bundesjugendtage.kamelrechner.kamelrechner.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link CalculateWomenFragment.OnFragmentInteractionListener} interface
+ * {@link CalculateMenFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link CalculateWomenFragment#newInstance} factory method to
+ * Use the {@link CalculateMenFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CalculateWomenFragment extends Fragment {
+public class CalculateMenFragment extends Fragment {
 
     Button bBerechne;
     TextView tErgebnis;
-    Spinner sHaarfarbe, sAugenfarbe, sKoerbchengroesse, sFigur;
+    Spinner sHaarfarbe, sAugenfarbe, sBart, sFigur;
     EditText eAlter, eGroesse;
 
     private OnFragmentInteractionListener mListener;
 
-    public CalculateWomenFragment() {
+    public CalculateMenFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +44,8 @@ public class CalculateWomenFragment extends Fragment {
      * @return A new instance of fragment CalculateWomenFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CalculateWomenFragment newInstance() {
-        CalculateWomenFragment fragment = new CalculateWomenFragment();
+    public static CalculateMenFragment newInstance() {
+        CalculateMenFragment fragment = new CalculateMenFragment();
         return fragment;
     }
 
@@ -58,16 +58,17 @@ public class CalculateWomenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.calculate_women, container, false);
+        View v = inflater.inflate(R.layout.calculate_men, container, false);
 
         bBerechne = (Button) v.findViewById(R.id.bBerechne);
         tErgebnis = (TextView) v.findViewById(R.id.tErgebnis);
         sHaarfarbe = (Spinner) v.findViewById(R.id.sHaarfarbe);
         sAugenfarbe = (Spinner) v.findViewById(R.id.sAugenFarbe);
-        sKoerbchengroesse = (Spinner) v.findViewById(R.id.sKoerbchengroesse);
+        sBart = (Spinner) v.findViewById(R.id.sBart);
         sFigur = (Spinner) v.findViewById(R.id.sFigur);
         eAlter = (EditText) v.findViewById(R.id.eAlter);
         eGroesse = (EditText) v.findViewById(R.id.eGroesse);
+
         sHaarfarbe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -90,7 +91,7 @@ public class CalculateWomenFragment extends Fragment {
 
             }
         });
-        sKoerbchengroesse.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        sBart.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 hideResult();
@@ -152,83 +153,80 @@ public class CalculateWomenFragment extends Fragment {
 
                                               // Groesse
                                               if (!eGroesse.getText().toString().equals("")) {
-                                                  if (Integer.parseInt(eGroesse.getText().toString()) < 160) {
-                                                      anzahl += 2;
-                                                  } else if (Integer.parseInt(eGroesse.getText().toString()) >= 160 && Integer.parseInt(eGroesse.getText().toString()) < 180) {
-                                                      anzahl += 4;
-                                                  } else if (Integer.parseInt(eGroesse.getText().toString()) >= 180) {
+                                                  if (Integer.parseInt(eGroesse.getText().toString()) < 170) {
                                                       anzahl += 1;
+                                                  } else if (Integer.parseInt(eGroesse.getText().toString()) >= 170 && Integer.parseInt(eGroesse.getText().toString()) < 190) {
+                                                      anzahl += 4;
+                                                  } else if (Integer.parseInt(eGroesse.getText().toString()) >= 190) {
+                                                      anzahl += 2;
                                                   }
                                               }
 
                                               // Haarfarbe
                                               if (sHaarfarbe.getSelectedItem().equals("blond")) {
-                                                  anzahl += 7;
-                                              }
-                                              else if(sHaarfarbe.getSelectedItem().equals("braun")) {
-                                                  anzahl += 6;
-                                              }
-                                              else if(sHaarfarbe.getSelectedItem().equals("schwarz")) {
                                                   anzahl += 5;
                                               }
+                                              else if(sHaarfarbe.getSelectedItem().equals("braun")) {
+                                                  anzahl += 8;
+                                              }
+                                              else if(sHaarfarbe.getSelectedItem().equals("schwarz")) {
+                                                  anzahl += 4;
+                                              }
                                               else if(sHaarfarbe.getSelectedItem().equals("rot")) {
-                                                  anzahl += 9;
+                                                  anzahl += 1;
                                               }
                                               else if(sHaarfarbe.getSelectedItem().equals("grau")) {
-                                                  anzahl += 2;
+                                                  anzahl += 5;
                                               }
 
                                               // Augenfarbe
                                               if (sAugenfarbe.getSelectedItem().equals("blau")) {
-                                                  anzahl += 5;
+                                                  anzahl += 6;
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("grün")) {
-                                                  anzahl += 7;
+                                                  anzahl += 5;
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("braun")) {
-                                                  anzahl += 4;
+                                                  anzahl += 8;
                                               }
                                               else if(sAugenfarbe.getSelectedItem().equals("grau")) {
                                                   anzahl += 3;
                                               }
 
-                                              // Koerbchengroesse
-                                              if (sKoerbchengroesse.getSelectedItem().equals("klein")) {
-                                                  anzahl += 3;
+                                              // Bart
+                                              if (sBart.getSelectedItem().equals("babyface")) {
+                                                  anzahl += 7;
                                               }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("mittel")) {
-                                                  anzahl += 4;
-                                              }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("groß")) {
+                                              else if(sBart.getSelectedItem().equals("3-Tage Bart")) {
                                                   anzahl += 5;
                                               }
-                                              else if(sKoerbchengroesse.getSelectedItem().equals("riesig")) {
-                                                  anzahl += 3;
+                                              else if(sBart.getSelectedItem().equals("Schnauzer")) {
+                                                  anzahl += 1;
+                                              }
+                                              else if(sBart.getSelectedItem().equals("Weihnachtsmanns Traum")) {
+                                                  anzahl += 4;
                                               }
 
                                               // Figur
-                                              if (sFigur.getSelectedItem().equals("mager")) {
-                                                  anzahl += 1;
-                                              }
-                                              else if(sFigur.getSelectedItem().equals("sportlich")) {
+                                              if (sFigur.getSelectedItem().equals("spargelförmig")) {
                                                   anzahl += 4;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("normal")) {
-                                                  anzahl += 3;
+                                              else if(sFigur.getSelectedItem().equals("Adoniskörper")) {
+                                                  anzahl += 10;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("mollig")) {
-                                                  anzahl += 2;
+                                              else if(sFigur.getSelectedItem().equals("0815")) {
+                                                  anzahl += 6;
                                               }
-                                              else if(sFigur.getSelectedItem().equals("dick")) {
-                                                  anzahl += 1;
+                                              else if(sFigur.getSelectedItem().equals("Bierbauch")) {
+                                                  anzahl += 4;
                                               }
 
                                               /**
                                                * Ausgabe
                                                */
 
-                                              tErgebnis.setText("Deine Freunding ist \n" + anzahl + " Kamele wert!");
-                                              tErgebnis.setBackgroundColor(getResources().getColor(R.color.Pink));
+                                              tErgebnis.setText("Dein Freund ist \n" + anzahl + " Kamele wert!");
+                                              tErgebnis.setBackgroundColor(getResources().getColor(R.color.sSchwarz));
                                               tErgebnis.setTextColor(getResources().getColor(R.color.sWeiss));
                                           }
                                       }

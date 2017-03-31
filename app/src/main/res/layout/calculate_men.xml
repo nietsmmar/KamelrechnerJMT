@@ -117,7 +117,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_width="150dip"
                     android:layout_height="wrap_content"
-                    android:id="@+id/sKoerbchengroesse"
+                    android:id="@+id/sBart"
                     android:prompt="@string/spinnerBartText"
                     android:entries="@array/spinnerBart"
                     android:background="#5b4040"
@@ -163,6 +163,7 @@
             <LinearLayout
                 android:paddingTop="20dip"
                 android:orientation="horizontal"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
