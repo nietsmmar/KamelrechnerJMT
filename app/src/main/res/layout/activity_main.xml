@@ -70,7 +70,7 @@
                     android:id="@+id/sHaarfarbe"
                     android:entries="@array/spinnerHaarfarbe"
                     android:prompt="@string/spinnerHaarfarbeText"
-                    android:background="@android:color/holo_blue_bright" />
+                    />
 
             </LinearLayout>
 

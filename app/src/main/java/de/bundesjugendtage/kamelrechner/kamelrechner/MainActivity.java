@@ -3,6 +3,7 @@ package de.bundesjugendtage.kamelrechner.kamelrechner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -136,5 +137,43 @@ public class MainActivity extends AppCompatActivity {
                }
            }
         );
+
+        sHaarfarbe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String color = ((TextView)view).getText().toString();
+                if(color.equals("blond")){
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.blond));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
+                }
+                else if(color.equals("braun")){
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.braun));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sWeiss));
+                }
+                else if(color.equals("schwarz")){
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.schwarz));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sWeiss));
+                }
+                else if(color.equals("rot")){
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.rot));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
+                }
+                else if(color.equals("grau")){
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.grau));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
+                }
+                else{
+                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.transparent));
+                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
     }
 }
