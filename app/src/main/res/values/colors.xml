@@ -11,4 +11,8 @@
     <color name="transparent">#FFFFFF00</color>
     <color name="sSchwarz">#000000</color>
     <color name="sWeiss">#FFFFFF</color>
+    <color name="aBlau">#00BFFF</color>
+    <color name="aGruen">#228B22</color>
+    <color name="aBraun">#8B4513</color>
+    <color name="aGrau">#BEBEBE</color>
 </resources>
