@@ -1,9 +1,13 @@
 package de.bundesjugendtage.kamelrechner.kamelrechner;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -138,7 +142,9 @@ public class MainActivity extends AppCompatActivity {
            }
         );
 
-        sHaarfarbe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        sHaarfarbe.setAdapter(new HarrFarbeAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerHaarfarbe)));
+        sAugenfarbe.setAdapter(new AugenfarbeAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerAugenfarbe)));
+       /* sHaarfarbe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String color = ((TextView)view).getText().toString();
@@ -172,8 +178,120 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
-        });
+        });*/
+    }
 
+    // Creating an Adapter Class
+    public class HarrFarbeAdapter extends ArrayAdapter {
 
+        public HarrFarbeAdapter(Context context, int textViewResourceId,
+                         String[] objects) {
+            super(context, textViewResourceId, objects);
+        }
+
+        private TextView setColors(TextView v){
+            String color = v.getText().toString();
+            if(color.equals("blond")){
+                v.setBackgroundColor(getResources().getColor(R.color.blond));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            else if(color.equals("braun")){
+                v.setBackgroundColor(getResources().getColor(R.color.braun));
+                v.setTextColor(getResources().getColor(R.color.sWeiss));
+            }
+            else if(color.equals("schwarz")){
+                v.setBackgroundColor(getResources().getColor(R.color.schwarz));
+                v.setTextColor(getResources().getColor(R.color.sWeiss));
+            }
+            else if(color.equals("rot")){
+                v.setBackgroundColor(getResources().getColor(R.color.rot));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            else if(color.equals("grau")){
+                v.setBackgroundColor(getResources().getColor(R.color.grau));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            else{
+                v.setBackgroundColor(getResources().getColor(R.color.transparent));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            return v;
+        }
+
+        // It gets a View that displays in the drop down popup the data at the specified position
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+            View mView = super.getDropDownView(position, convertView, parent);
+            if(mView instanceof TextView){
+               return setColors((TextView)mView);
+            }
+            return mView;
+        }
+
+        // It gets a View that displays the data at the specified position
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View mView = super.getView(position, convertView, parent);
+            if(mView instanceof TextView){
+                return setColors((TextView)mView);
+            }
+            return mView;
+        }
+    }
+
+    // Creating an Adapter Class
+    public class AugenfarbeAdapter extends ArrayAdapter {
+
+        public AugenfarbeAdapter(Context context, int textViewResourceId,
+                         String[] objects) {
+            super(context, textViewResourceId, objects);
+        }
+
+        private TextView setColors(TextView v){
+            String color = v.getText().toString();
+            if(color.equals("blau")){
+                v.setBackgroundColor(getResources().getColor(R.color.aBlau));
+                v.setTextColor(getResources().getColor(R.color.sWeiss));
+            }
+            else if(color.equals("grün")){
+                v.setBackgroundColor(getResources().getColor(R.color.aGruen));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            else if(color.equals("braun")){
+                v.setBackgroundColor(getResources().getColor(R.color.aBraun));
+                v.setTextColor(getResources().getColor(R.color.sWeiss));
+            }
+            else if(color.equals("grau")){
+                v.setBackgroundColor(getResources().getColor(R.color.aGrau));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            else{
+                v.setBackgroundColor(getResources().getColor(R.color.transparent));
+                v.setTextColor(getResources().getColor(R.color.sSchwarz));
+            }
+            return v;
+        }
+
+        // It gets a View that displays in the drop down popup the data at the specified position
+        @Override
+        public View getDropDownView(int position, View convertView,
+                                    ViewGroup parent) {
+            View mView = super.getDropDownView(position, convertView, parent);
+            if(mView instanceof TextView){
+                return setColors((TextView)mView);
+            }
+            return mView;
+        }
+
+        // It gets a View that displays the data at the specified position
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View mView = super.getView(position, convertView, parent);
+            if(mView instanceof TextView){
+                return setColors((TextView)mView);
+            }
+            return mView;
+        }
     }
 }

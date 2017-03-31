@@ -65,10 +65,9 @@
                     android:id="@+id/tHaarfarbe" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/sHaarfarbe"
-                    android:entries="@array/spinnerHaarfarbe"
                     android:prompt="@string/spinnerHaarfarbeText"
                     />
 
@@ -87,12 +86,11 @@
                     android:id="@+id/tAugenFarbe" />
 
                 <Spinner
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/sAugenFarbe"
                     android:prompt="@string/spinnerAugenfarbeText"
-                    android:entries="@array/spinnerAugenfarbe"
-                    android:background="#32a08c" />
+                    />
             </LinearLayout>
 
             <LinearLayout
