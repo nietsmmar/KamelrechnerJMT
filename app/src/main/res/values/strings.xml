@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Kamelrechner</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 
     <string name="spinnerHaarfarbeText">Wähle eine Haarfarbe</string>
     <string-array name="spinnerHaarfarbe">
@@ -34,4 +36,7 @@
         <item>mollig</item>
         <item>dick</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

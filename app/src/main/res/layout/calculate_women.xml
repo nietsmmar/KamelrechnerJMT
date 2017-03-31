@@ -1,0 +1,178 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="layout.CalculateWomenFragment">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Alter:"
+                    android:id="@+id/tAlter" />
+
+                <EditText
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/eAlter"
+                    android:inputType="number" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Größe (in cm):"
+                    android:id="@+id/tGroesse" />
+
+                <EditText
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/eGroesse"
+                    android:inputType="number" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Haarfarbe:"
+                    android:id="@+id/tHaarfarbe" />
+
+                <Spinner
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:id="@+id/sHaarfarbe"
+                    android:prompt="@string/spinnerHaarfarbeText"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Augenfarbe:"
+                    android:id="@+id/tAugenFarbe" />
+
+                <Spinner
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sAugenFarbe"
+                    android:background="@color/transparent"
+                    android:backgroundTintMode="multiply"
+                    android:prompt="@string/spinnerAugenfarbeText"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_alignParentLeft="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Körbchengröße:"
+                    android:id="@+id/tKoerbchengroesse" />
+
+                <Spinner
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sKoerbchengroesse"
+                    android:prompt="@string/spinnerKoerbchengroesseText"
+                    android:entries="@array/spinnerKoerbchengroesse"
+                    android:background="#5b4040"
+                    android:backgroundTintMode="multiply"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Figur:"
+                    android:id="@+id/tFigur" />
+
+                <Spinner
+                    android:layout_alignParentRight="true"
+                    android:layout_width="150dip"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sFigur"
+                    android:prompt="@string/spinnerFigurText"
+                    android:entries="@array/spinnerFigur" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:paddingTop="30dip"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ausrechnen"
+                    android:id="@+id/bBerechne" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="20dip"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/tErgebnis" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

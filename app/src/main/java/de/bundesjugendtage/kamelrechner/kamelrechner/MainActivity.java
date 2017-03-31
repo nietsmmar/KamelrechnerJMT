@@ -1,297 +1,124 @@
 package de.bundesjugendtage.kamelrechner.kamelrechner;
+        import android.support.design.widget.TabLayout;
+        import android.support.design.widget.FloatingActionButton;
+        import android.support.design.widget.Snackbar;
+        import android.support.v7.app.AppCompatActivity;
+        import android.support.v7.widget.Toolbar;
 
-import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.support.v4.app.Fragment;
+        import android.support.v4.app.FragmentManager;
+        import android.support.v4.app.FragmentPagerAdapter;
+        import android.support.v4.view.ViewPager;
+        import android.os.Bundle;
+        import android.view.LayoutInflater;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.View;
+        import android.view.ViewGroup;
+
+        import android.widget.TextView;
+
+        import layout.CalculateWomenFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button bBerechne;
-    TextView tErgebnis;
-    Spinner sHaarfarbe, sAugenfarbe, sKoerbchengroesse, sFigur;
-    EditText eAlter, eGroesse;
+    /**
+     * The {@link android.support.v4.view.PagerAdapter} that will provide
+     * fragments for each of the sections. We use a
+     * {@link FragmentPagerAdapter} derivative, which will keep every
+     * loaded fragment in memory. If this becomes too memory intensive, it
+     * may be best to switch to a
+     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
+     */
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
+    /**
+     * The {@link ViewPager} that will host the section contents.
+     */
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.tabbed_main_activity);
 
-        bBerechne = (Button) findViewById(R.id.bBerechne);
-        tErgebnis = (TextView) findViewById(R.id.tErgebnis);
-        sHaarfarbe = (Spinner) findViewById(R.id.sHaarfarbe);
-        sAugenfarbe = (Spinner) findViewById(R.id.sAugenFarbe);
-        sKoerbchengroesse = (Spinner) findViewById(R.id.sKoerbchengroesse);
-        sFigur = (Spinner) findViewById(R.id.sFigur);
-        eAlter = (EditText) findViewById(R.id.eAlter);
-        eGroesse = (EditText) findViewById(R.id.eGroesse);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //setSupportActionBar(toolbar);
+        // Create the adapter that will return a fragment for each of the three
+        // primary sections of the activity.
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-        bBerechne.setOnClickListener( new View.OnClickListener() {
-               public void onClick(View v) {
-                    int anzahl = 0;
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-                    /**
-                     * Berechnung
-                      */
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(mViewPager);
 
-                    // Alter
-                    if (!eAlter.getText().toString().equals("")) {
-                        if (Integer.parseInt(eAlter.getText().toString()) < 18) {
-                            anzahl += 5;
-                        }
-                        else if(Integer.parseInt(eAlter.getText().toString()) >= 18 && Integer.parseInt(eAlter.getText().toString()) < 28) {
-                            anzahl += 7;
-                        }
-                        else if(Integer.parseInt(eAlter.getText().toString()) >= 28 && Integer.parseInt(eAlter.getText().toString()) < 45) {
-                            anzahl += 4;
-                        }
-                        else if(Integer.parseInt(eAlter.getText().toString()) >= 45) {
-                            anzahl += 2;
-                        }
-                    }
-
-
-                    // Groesse
-                    if (!eGroesse.getText().toString().equals("")) {
-                        if (Integer.parseInt(eGroesse.getText().toString()) < 160) {
-                            anzahl += 2;
-                        } else if (Integer.parseInt(eGroesse.getText().toString()) >= 160 && Integer.parseInt(eGroesse.getText().toString()) < 180) {
-                            anzahl += 4;
-                        } else if (Integer.parseInt(eGroesse.getText().toString()) >= 180) {
-                            anzahl += 1;
-                        }
-                    }
-
-                    // Haarfarbe
-                    if (sHaarfarbe.getSelectedItem().equals("blond")) {
-                        anzahl += 7;
-                    }
-                    else if(sHaarfarbe.getSelectedItem().equals("braun")) {
-                        anzahl += 6;
-                    }
-                    else if(sHaarfarbe.getSelectedItem().equals("schwarz")) {
-                        anzahl += 5;
-                    }
-                    else if(sHaarfarbe.getSelectedItem().equals("rot")) {
-                        anzahl += 9;
-                    }
-                    else if(sHaarfarbe.getSelectedItem().equals("grau")) {
-                        anzahl += 2;
-                    }
-
-                    // Augenfarbe
-                    if (sAugenfarbe.getSelectedItem().equals("blau")) {
-                        anzahl += 5;
-                    }
-                    else if(sAugenfarbe.getSelectedItem().equals("grün")) {
-                        anzahl += 7;
-                    }
-                    else if(sAugenfarbe.getSelectedItem().equals("braun")) {
-                        anzahl += 4;
-                    }
-                    else if(sAugenfarbe.getSelectedItem().equals("grau")) {
-                        anzahl += 3;
-                    }
-
-                    // Koerbchengroesse
-                    if (sKoerbchengroesse.getSelectedItem().equals("klein")) {
-                        anzahl += 3;
-                    }
-                    else if(sKoerbchengroesse.getSelectedItem().equals("mittel")) {
-                        anzahl += 4;
-                    }
-                    else if(sKoerbchengroesse.getSelectedItem().equals("groß")) {
-                        anzahl += 5;
-                    }
-                    else if(sKoerbchengroesse.getSelectedItem().equals("riesig")) {
-                        anzahl += 3;
-                    }
-
-                    // Figur
-                    if (sFigur.getSelectedItem().equals("mager")) {
-                        anzahl += 1;
-                    }
-                    else if(sFigur.getSelectedItem().equals("sportlich")) {
-                        anzahl += 4;
-                    }
-                    else if(sFigur.getSelectedItem().equals("normal")) {
-                        anzahl += 3;
-                    }
-                    else if(sFigur.getSelectedItem().equals("mollig")) {
-                        anzahl += 2;
-                    }
-                    else if(sFigur.getSelectedItem().equals("dick")) {
-                        anzahl += 1;
-                    }
-
-                   /**
-                    * Ausgabe
-                    */
-
-                   tErgebnis.setText(anzahl + " Kamele wert!");
-               }
-           }
-        );
-
-        sHaarfarbe.setAdapter(new HarrFarbeAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerHaarfarbe)));
-        sAugenfarbe.setAdapter(new AugenfarbeAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerAugenfarbe)));
-       /* sHaarfarbe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String color = ((TextView)view).getText().toString();
-                if(color.equals("blond")){
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.blond));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
-                }
-                else if(color.equals("braun")){
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.braun));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sWeiss));
-                }
-                else if(color.equals("schwarz")){
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.schwarz));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sWeiss));
-                }
-                else if(color.equals("rot")){
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.rot));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
-                }
-                else if(color.equals("grau")){
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.grau));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
-                }
-                else{
-                    sHaarfarbe.setBackgroundColor(getResources().getColor(R.color.transparent));
-                    ((TextView)view).setTextColor(getResources().getColor(R.color.sSchwarz));
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
     }
 
-    // Creating an Adapter Class
-    public class HarrFarbeAdapter extends ArrayAdapter {
 
-        public HarrFarbeAdapter(Context context, int textViewResourceId,
-                         String[] objects) {
-            super(context, textViewResourceId, objects);
-        }
-
-        private TextView setColors(TextView v){
-            String color = v.getText().toString();
-            if(color.equals("blond")){
-                v.setBackgroundColor(getResources().getColor(R.color.blond));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            else if(color.equals("braun")){
-                v.setBackgroundColor(getResources().getColor(R.color.braun));
-                v.setTextColor(getResources().getColor(R.color.sWeiss));
-            }
-            else if(color.equals("schwarz")){
-                v.setBackgroundColor(getResources().getColor(R.color.schwarz));
-                v.setTextColor(getResources().getColor(R.color.sWeiss));
-            }
-            else if(color.equals("rot")){
-                v.setBackgroundColor(getResources().getColor(R.color.rot));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            else if(color.equals("grau")){
-                v.setBackgroundColor(getResources().getColor(R.color.grau));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            else{
-                v.setBackgroundColor(getResources().getColor(R.color.transparent));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            return v;
-        }
-
-        // It gets a View that displays in the drop down popup the data at the specified position
-        @Override
-        public View getDropDownView(int position, View convertView,
-                                    ViewGroup parent) {
-            View mView = super.getDropDownView(position, convertView, parent);
-            if(mView instanceof TextView){
-               return setColors((TextView)mView);
-            }
-            return mView;
-        }
-
-        // It gets a View that displays the data at the specified position
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View mView = super.getView(position, convertView, parent);
-            if(mView instanceof TextView){
-                return setColors((TextView)mView);
-            }
-            return mView;
-        }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-    // Creating an Adapter Class
-    public class AugenfarbeAdapter extends ArrayAdapter {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        public AugenfarbeAdapter(Context context, int textViewResourceId,
-                         String[] objects) {
-            super(context, textViewResourceId, objects);
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
         }
 
-        private TextView setColors(TextView v){
-            String color = v.getText().toString();
-            if(color.equals("blau")){
-                v.setBackgroundColor(getResources().getColor(R.color.aBlau));
-                v.setTextColor(getResources().getColor(R.color.sWeiss));
-            }
-            else if(color.equals("grün")){
-                v.setBackgroundColor(getResources().getColor(R.color.aGruen));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            else if(color.equals("braun")){
-                v.setBackgroundColor(getResources().getColor(R.color.aBraun));
-                v.setTextColor(getResources().getColor(R.color.sWeiss));
-            }
-            else if(color.equals("grau")){
-                v.setBackgroundColor(getResources().getColor(R.color.aGrau));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            else{
-                v.setBackgroundColor(getResources().getColor(R.color.transparent));
-                v.setTextColor(getResources().getColor(R.color.sSchwarz));
-            }
-            return v;
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
+     * one of the sections/tabs/pages.
+     */
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
         }
 
-        // It gets a View that displays in the drop down popup the data at the specified position
         @Override
-        public View getDropDownView(int position, View convertView,
-                                    ViewGroup parent) {
-            View mView = super.getDropDownView(position, convertView, parent);
-            if(mView instanceof TextView){
-                return setColors((TextView)mView);
+        public Fragment getItem(int position) {
+            // getItem is called to instantiate the fragment for the given page.
+            switch (position) {
+                case 0:
+                    return CalculateWomenFragment.newInstance();
+                case 1:
+                    return CalculateWomenFragment.newInstance();
             }
-            return mView;
+            return null;
         }
 
-        // It gets a View that displays the data at the specified position
         @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View mView = super.getView(position, convertView, parent);
-            if(mView instanceof TextView){
-                return setColors((TextView)mView);
+        public int getCount() {
+            // Show 3 total pages.
+            return 2;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            switch (position) {
+                case 0:
+                    return "SECTION 1";
+                case 1:
+                    return "SECTION 2";
+                case 2:
+                    return "SECTION 3";
             }
-            return mView;
+            return null;
         }
     }
 }
