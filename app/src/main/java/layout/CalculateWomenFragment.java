@@ -236,6 +236,8 @@ public class CalculateWomenFragment extends Fragment {
 
         sHaarfarbe.setAdapter(new HarrFarbeAdapter(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerHaarfarbe)));
         sAugenfarbe.setAdapter(new AugenfarbeAdapter(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerAugenfarbe)));
+        sKoerbchengroesse.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerKoerbchengroesse)));
+        sFigur.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerFigur)));
         return v;
     }
 

@@ -226,14 +226,16 @@ public class CalculateMenFragment extends Fragment {
                                                */
 
                                               tErgebnis.setText("Dein Freund ist \n" + anzahl + " Kamele wert!");
-                                              tErgebnis.setBackgroundColor(getResources().getColor(R.color.sSchwarz));
-                                              tErgebnis.setTextColor(getResources().getColor(R.color.sWeiss));
+                                              tErgebnis.setBackgroundColor(getResources().getColor(R.color.rotMaennlich));
+                                              tErgebnis.setTextColor(getResources().getColor(R.color.sSchwarz));
                                           }
                                       }
         );
 
         sHaarfarbe.setAdapter(new HarrFarbeAdapter(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerHaarfarbe)));
         sAugenfarbe.setAdapter(new AugenfarbeAdapter(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerAugenfarbe)));
+        sBart.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerBart)));
+        sFigur.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.spinnerFigurMann)));
         return v;
     }
 

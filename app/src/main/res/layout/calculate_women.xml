@@ -119,8 +119,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/sKoerbchengroesse"
                     android:prompt="@string/spinnerKoerbchengroesseText"
-                    android:entries="@array/spinnerKoerbchengroesse"
-                    android:background="#5b4040"
+                    android:background="@color/transparent"
                     android:backgroundTintMode="multiply"
                     />
             </RelativeLayout>
@@ -143,7 +142,9 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/sFigur"
                     android:prompt="@string/spinnerFigurText"
-                    android:entries="@array/spinnerFigur" />
+                    android:background="@color/transparent"
+                    android:backgroundTintMode="multiply"
+                    />
             </RelativeLayout>
 
             <LinearLayout
@@ -168,9 +169,10 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textAlignment="center"
                     android:id="@+id/tErgebnis" />
             </LinearLayout>
         </LinearLayout>
