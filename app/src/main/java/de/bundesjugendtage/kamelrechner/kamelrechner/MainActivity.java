@@ -16,6 +16,7 @@ package de.bundesjugendtage.kamelrechner.kamelrechner;
         import android.view.View;
         import android.view.ViewGroup;
 
+        import android.view.WindowManager;
         import android.widget.TextView;
 
         import layout.CalculateMenFragment;
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+        );
 
     }
 
