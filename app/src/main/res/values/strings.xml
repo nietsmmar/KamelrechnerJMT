@@ -37,6 +37,21 @@
         <item>dick</item>
     </string-array>
 
+    <!-- men specific texts -->
+    <string name="spinnerBartText">Wähle einen Bart-Typ</string>
+    <string-array name="spinnerBart">
+        <item>babyface</item>
+        <item>3-Tage Bart</item>
+        <item>Schnauzer</item>
+        <item>Weihnachtsmanns Traum</item>
+    </string-array>
+    <string-array name="spinnerFigurMann">
+        <item>spargelförmig</item>
+        <item>Adoniskörper</item>
+        <item>0815</item>
+        <item>Bierbauch</item>
+    </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
